@@ -1,0 +1,41 @@
+.label {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-left: 22px;
+    padding: 0px 14px;
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+
+.input {
+    width: 100%;
+    margin-left: 8px;
+    border: none;
+    outline: none;
+}
+
+.iconSearch {
+    width: 14px;
+    height: 14px;
+}
+
+@media (min-width: 320px) {
+    .label {
+        width: 200px;
+    }
+}
+
+@media (min-width: 481px) {
+    .label {
+        width: 300px;
+    }
+}
+
+@media (min-width: 769px) {
+    .label {
+        width: 500px;
+    }
+}

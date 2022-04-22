@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding-left: 41px;
+    width: 100vw;
+    height: 72px;
+    background-color: #0064EB;
+}
+
+img {
+    width: 41px;
+    height: 40px;
+}
+
+@media (min-width: 320px) {
+    .header {
+        justify-content: center;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 481px) {
+    .header {
+        justify-content: normal;
+        padding-left: 41px;
+    }
+}
