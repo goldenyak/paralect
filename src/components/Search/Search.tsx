@@ -3,7 +3,7 @@ import s from "./Search.module.css";
 import iconSearch from "../../images/iconSearch.png";
 import {useDispatch} from "react-redux";
 import {fetchReposTC} from "../../redux/repos-reducer";
-import {fetchUserTC, setInputValueAC} from "../../redux/user-reducer";
+import {fetchUserTC} from "../../redux/user-reducer";
 
 export const Search = () => {
 
@@ -27,10 +27,10 @@ export const Search = () => {
 
     const addInputValueHandler = () => {
         if (value.trim() !== '') {
-            // dispatch(setInputValueAC(value))
             // @ts-ignore
             dispatch(fetchUserTC(value))
-            // dispatch(fetchReposTC(value))
+            // @ts-ignore
+            dispatch(fetchReposTC(value))
             setValue('');
         } else {
             setError('Поле не может быть пустым');

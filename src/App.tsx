@@ -13,7 +13,6 @@ export const App = () => {
                     <Route path="/" element={<InitialPage/>}/>
                 </Routes>
             </Provider>
-
         </div>
 );
 }
