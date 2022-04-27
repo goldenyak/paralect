@@ -1,0 +1,87 @@
+a {
+    text-decoration: none;
+    color: #0064EB;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.mainContent {
+    display: flex;
+    padding: 28px 56px;
+    /*background-color: #E5E5E5;*/
+    /*height: 100%;*/
+}
+
+.contentLeft {
+    display: flex;
+    flex-direction: column;
+    /*align-content: center;*/
+    /*align-items: center;*/
+    /*background-color: red;*/
+    /*height: 500px;*/
+    width: 30%;
+}
+
+.contentLeft_image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+}
+
+.contentLeft_name {
+    font-size: 26px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 28px;
+}
+
+.contentLeft_login {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 12px;
+    text-align: left;
+}
+
+.subscriptionBlock {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.followers {
+    display: flex;
+    align-items: center;
+}
+
+.followers span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    margin-left: 8px;
+}
+
+.following {
+    display: flex;
+    align-items: center;
+}
+
+.following span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    margin-left: 8px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.contentRight {
+    /*background-color: green;*/
+    height: 500px;
+    width: 70%;
+}

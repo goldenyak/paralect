@@ -1,0 +1,13 @@
+.repoWrapper {
+    margin-top: 29px;
+    /*width: 1000px;*/
+    /*height: 100px;*/
+    padding: 24px 32px;
+    border-radius: 7px;
+    background-color: grey;
+    opacity: 0.8;
+}
+
+.repoWrapper h4 {
+    margin-bottom: 16px;
+}
