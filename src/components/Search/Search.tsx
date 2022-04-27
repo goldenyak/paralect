@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {fetchReposTC} from "../../redux/repos-reducer";
 import {fetchUserTC} from "../../redux/user-reducer";
 import {useNavigate} from "react-router-dom";
+import {ThunkDispatch} from "redux-thunk";
 
 export const Search = () => {
 
@@ -29,10 +30,6 @@ export const Search = () => {
 
     const addInputValueHandler = () => {
         if (value.trim() !== '') {
-            // @ts-ignore
-            dispatch(fetchUserTC(value))
-            // @ts-ignore
-            dispatch(fetchReposTC(value))
             setValue('');
             navigate(`/${value}`)
         } else {
