@@ -4,6 +4,7 @@ import iconSearch from "../../images/iconSearch.png";
 import {useDispatch} from "react-redux";
 import {fetchReposTC} from "../../redux/repos-reducer";
 import {fetchUserTC} from "../../redux/user-reducer";
+import {useNavigate} from "react-router-dom";
 
 export const Search = () => {
 
@@ -11,6 +12,7 @@ export const Search = () => {
     const [error, setError] = useState<string | null>(null);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
@@ -32,6 +34,7 @@ export const Search = () => {
             // @ts-ignore
             dispatch(fetchReposTC(value))
             setValue('');
+            navigate(`/${value}`)
         } else {
             setError('Поле не может быть пустым');
         }
