@@ -4,10 +4,21 @@
     /*height: 100px;*/
     padding: 24px 32px;
     border-radius: 7px;
-    background-color: grey;
+    background-color: #ffffff;
     opacity: 0.8;
 }
 
-.repoWrapper h4 {
+.repoWrapper a {
+    display: block;
     margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #0064EB;
+    cursor: pointer;
+}
+
+.repoWrapper span {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
 }

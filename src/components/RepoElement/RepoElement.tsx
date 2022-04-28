@@ -11,6 +11,7 @@ type RepoElementPropsType = {
 export const RepoElement: React.FC<RepoElementPropsType> = ({repos}) => {
 
     const {public_repos} = useSelector<AppRootStateType, any>(state => state.user);
+    console.log(repos)
 
     return (
         <div>
@@ -18,7 +19,7 @@ export const RepoElement: React.FC<RepoElementPropsType> = ({repos}) => {
             {
                 repos.length && repos.map((repo: any) => (
                     <div key={repo.id} className={r.repoWrapper}>
-                        <h4>{repo.name}</h4>
+                        <a href={repo.html_url} target='_blank'>{repo.name}</a>
                         <span>{repo.description}</span>
                     </div>
                 ))

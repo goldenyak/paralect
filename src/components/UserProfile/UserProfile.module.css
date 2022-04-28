@@ -10,8 +10,7 @@ a:hover {
 .mainContent {
     display: flex;
     padding: 28px 56px;
-    /*background-color: #E5E5E5;*/
-    /*height: 100%;*/
+    height: 100vh;
 }
 
 .contentLeft {
@@ -22,6 +21,7 @@ a:hover {
     /*background-color: red;*/
     /*height: 500px;*/
     width: 30%;
+    height: 100%;
 }
 
 .contentLeft_image {
@@ -82,6 +82,7 @@ a:hover {
 
 .contentRight {
     /*background-color: green;*/
-    height: 500px;
+    /*height: 500px;*/
     width: 70%;
+    height: 100%;
 }

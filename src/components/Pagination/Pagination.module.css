@@ -28,18 +28,27 @@ button {
     opacity: 0.8;
 }
 
-
 .paginationWrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 16px;
     margin-top: 24px;
-
 }
 
 .paginationItems {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     color: #808080
+}
+
+.paginationItems:active {
+    color: red;
+}
+
+.paginationInfo {
+    font-size: 14px;
+    font-weight: 400;
+    color: #808080;
+    margin-right: 16px;
 }
