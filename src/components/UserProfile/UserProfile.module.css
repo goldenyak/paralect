@@ -10,19 +10,39 @@ a:hover {
 .mainContent {
     display: flex;
     padding: 28px 56px;
-    height: 100vh;
+    height: 100%;
 }
 
 .contentLeft {
     display: flex;
     flex-direction: column;
-    /*align-content: center;*/
-    /*align-items: center;*/
-    /*background-color: red;*/
-    /*height: 500px;*/
     width: 30%;
-    height: 100%;
 }
+
+@media (min-width: 320px) and (max-width: 1080px){
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 28px 56px;
+        height: 100%;
+    }
+
+    .contentLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contentRight {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
 
 .contentLeft_image {
     width: 280px;
@@ -81,8 +101,5 @@ a:hover {
 }
 
 .contentRight {
-    /*background-color: green;*/
-    /*height: 500px;*/
     width: 70%;
-    height: 100%;
 }

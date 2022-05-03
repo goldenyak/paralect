@@ -16,7 +16,7 @@ button {
 }
 
 .paginationIconLeft:hover {
-   opacity: 0.8;
+    opacity: 0.8;
 }
 
 .paginationIconRight {
@@ -39,11 +39,15 @@ button {
 .paginationItems {
     font-size: 16px;
     font-weight: 400;
-    color: #808080
+    color: #808080;
 }
 
-.paginationItems:active {
-    color: red;
+.paginationItemsActive{
+    border: 1px solid #0064EB;
+    background: #0064EB;
+    border-radius: 3px;
+    padding: 3px;
+    color: white;
 }
 
 .paginationInfo {

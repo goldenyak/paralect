@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import './App.css';
+// import './App.css';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
 import {UserProfile} from "./components/UserProfile/UserProfile";
@@ -9,7 +9,7 @@ import {InitialStatus} from "./components/InitialStatus/InitialStatus";
 
 export const App = () => {
     return (
-        <div className="App">
+        <div>
             <Provider store={store}>
                 <Header/>
                 <Routes>

@@ -1,50 +1,41 @@
 import {Dispatch} from "redux";
-import {userAPI} from "../api/user-api";
+import {userAPI, UserType} from "../api/user-api";
 import {AppActionType, AppRootStateType, ThunkType} from "./store";
 import {ThunkAction} from "redux-thunk";
 import {setAppStatusAC} from "./loader-reducer";
 import {fetchReposTC} from "./repos-reducer";
 
-export type InitialStateType = {
-    avatar: string
-    name: string
-    login: string
-    url: string
-    followers: number
-    following: number
-    public_repos: number
-};
-
-const initialState: InitialStateType = {
-    avatar: '',
+const initialState: UserType = {
+    avatar_url: '',
     name: '',
     login: '',
-    url: '',
+    html_url: '',
     followers: 0,
     following: 0,
     public_repos: 0,
 };
-
-export const setUserAC = (avatar: string, name: string, login: string, url: string, folllowers: number, following: number, public_repos: number) => ({
+// actionCreators
+export const setUserAC = (avatar_url: string, name: string, login: string, html_url: string, folllowers: number, following: number, public_repos: number) => ({
     type: 'user/SET-USER',
-    avatar,
+    avatar_url,
     name,
     login,
-    url,
+    html_url,
     folllowers,
     following,
     public_repos
 } as const);
 
-export const userReducer = (state: InitialStateType = initialState, action: ActionsUserType): InitialStateType => {
+// reducers
+export const userReducer = (state = initialState, action: ActionsUserType): UserType => {
     switch (action.type) {
         case 'user/SET-USER':
             return {
                 ...state,
-                avatar: action.avatar,
+                avatar_url: action.avatar_url,
                 name: action.name,
                 login: action.login,
-                url: action.url,
+                html_url: action.html_url,
                 followers: action.folllowers,
                 following: action.following,
                 public_repos: action.public_repos
@@ -55,17 +46,13 @@ export const userReducer = (state: InitialStateType = initialState, action: Acti
 };
 
 // thunks
-export const fetchUserTC = (username: string): ThunkType => {
-    return (dispatch) => {
-        dispatch(setAppStatusAC('loading'))
-        userAPI.getUser(username)
-            .then((res) => {
-                dispatch(fetchReposTC(username))
-                dispatch(setUserAC(res.data.avatar_url, res.data.name, res.data.login, res.data.html_url, res.data.followers, res.data.following, res.data.public_repos))
-                dispatch(setAppStatusAC('succeeded'))
-            })
-    }
+export const fetchUserTC = (username: string): ThunkType => async dispatch => {
+    dispatch(setAppStatusAC('loading'))
+    const res = await userAPI.getUser(username)
+    dispatch(fetchReposTC(username))
+    dispatch(setUserAC(res.data.avatar_url, res.data.name, res.data.login, res.data.html_url, res.data.followers, res.data.following, res.data.public_repos))
+    dispatch(setAppStatusAC('succeeded'))
 }
 
-
+// types
 export type ActionsUserType = ReturnType<typeof setUserAC>

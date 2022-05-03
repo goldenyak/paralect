@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import u from "./UserProfile.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../redux/store";
+import {AppRootStateType, store, useAppDispatch} from "../../redux/store";
 import iconFollowers from "../../images/iconFollowers.png";
 import iconFollowing from "../../images/iconFollowing.png";
 import {RepoElement} from "../RepoElement/RepoElement";
@@ -9,22 +9,27 @@ import {ReposType} from "../../api/repos-api";
 import Pagination from "../Pagination/Pagination";
 import {fetchUserTC} from "../../redux/user-reducer";
 import {useParams} from "react-router-dom";
-import {fetchReposTC} from "../../redux/repos-reducer";
 import {EmptyStatus} from "../EmptyStatus/EmptyStatus";
 import {EmptyRepos} from "../EmptyRepos/EmptyRepos";
-import {stat} from "fs";
 import {Loader} from "../Loader/Loader";
+import {UserType} from "../../api/user-api";
 
 export const UserProfile = () => {
-
-    const {avatar, name, login, url, followers, following} = useSelector<AppRootStateType, any>(state => state.user);
+    const {
+        avatar_url,
+        name,
+        login,
+        html_url,
+        followers,
+        following
+    } = useSelector<AppRootStateType, UserType>(state => state.user);
     const repos: ReposType[] = useSelector<AppRootStateType, Array<ReposType>>(state => state.repos);
     const status = useSelector<AppRootStateType>(state => state.loading.status)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [reposPerPage] = useState(5);
+    const [reposPerPage, setReposPerPage] = useState(5);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const params = useParams();
 
     const lastRepoIndex = currentPage * reposPerPage;
@@ -46,17 +51,22 @@ export const UserProfile = () => {
         dispatch(fetchUserTC(params.username))
     }, [params.username])
 
+    if (status === 'loading') {
+        return <Loader/>
+    }
+
     if (!name) {
         return <EmptyStatus/>
     }
 
+
     return (
         <div className={u.mainContent}>
-            {status === 'loading' && <Loader/>}
+
             <div className={u.contentLeft}>
-                <img className={u.contentLeft_image} src={avatar} alt='userAvatar'/>
+                <img className={u.contentLeft_image} src={avatar_url} alt='userAvatar'/>
                 <h1 className={u.contentLeft_name}>{name}</h1>
-                <a href={url} target='_blank'>
+                <a href={html_url} target='_blank'>
                     <h3 className={u.contentLeft_login}>{login}</h3>
                 </a>
 
@@ -72,7 +82,7 @@ export const UserProfile = () => {
                 </div>
             </div>
             <div className={u.contentRight}>
-                {repos.length ? <>
+                {status === 'loading' ? <Loader/> : repos.length ? <>
                         <RepoElement repos={currentRepo}/>
                         <Pagination reposPerPage={reposPerPage}
                                     totalRepos={repos.length}
@@ -84,9 +94,24 @@ export const UserProfile = () => {
                                     lastRepoIndex={lastRepoIndex}
                         />
                     </>
-                    : <EmptyRepos/>}
-            </div>
+                    : status === 'loading' ? <Loader/> : <EmptyRepos/>}
 
+
+
+                {/*{repos.length ? <>*/}
+                {/*        <RepoElement repos={currentRepo}/>*/}
+                {/*        <Pagination reposPerPage={reposPerPage}*/}
+                {/*                    totalRepos={repos.length}*/}
+                {/*                    handlerPaginate={handlerPaginate}*/}
+                {/*                    handlerNextPage={handlerNextPage}*/}
+                {/*                    handlerPrevPage={handlerPrevPage}*/}
+                {/*                    currentPage={currentPage}*/}
+                {/*                    firstRepoIndex={firstRepoIndex}*/}
+                {/*                    lastRepoIndex={lastRepoIndex}*/}
+                {/*        />*/}
+                {/*    </>*/}
+                {/*    : <EmptyRepos/>}*/}
+            </div>
         </div>
     );
 };

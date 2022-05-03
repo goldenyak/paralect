@@ -11,7 +11,6 @@ type RepoElementPropsType = {
 export const RepoElement: React.FC<RepoElementPropsType> = ({repos}) => {
 
     const {public_repos} = useSelector<AppRootStateType, any>(state => state.user);
-    console.log(repos)
 
     return (
         <div>
