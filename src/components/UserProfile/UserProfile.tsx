@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType, store, useAppDispatch} from "../../redux/store";
 import iconFollowers from "../../images/iconFollowers.png";
 import iconFollowing from "../../images/iconFollowing.png";
-import {RepoElement} from "../RepoElement/RepoElement";
 import {ReposType} from "../../api/repos-api";
 import Pagination from "../Pagination/Pagination";
 import {fetchUserTC} from "../../redux/user-reducer";
@@ -13,6 +12,7 @@ import {EmptyStatus} from "../EmptyStatus/EmptyStatus";
 import {EmptyRepos} from "../EmptyRepos/EmptyRepos";
 import {Loader} from "../Loader/Loader";
 import {UserType} from "../../api/user-api";
+import { ReposList } from '../ReposList/ReposList';
 
 export const UserProfile = () => {
     const {
@@ -45,10 +45,11 @@ export const UserProfile = () => {
     const handlerPrevPage = () => {
         setCurrentPage(prev => prev - 1)
     }
-
+    console.log(repos)
     useEffect(() => {
-        // @ts-ignore
-        dispatch(fetchUserTC(params.username))
+        if (params.username) {
+            dispatch(fetchUserTC(params.username))
+        }
     }, [params.username])
 
     if (status === 'loading') {
@@ -59,17 +60,14 @@ export const UserProfile = () => {
         return <EmptyStatus/>
     }
 
-
     return (
         <div className={u.mainContent}>
-
             <div className={u.contentLeft}>
                 <img className={u.contentLeft_image} src={avatar_url} alt='userAvatar'/>
                 <h1 className={u.contentLeft_name}>{name}</h1>
                 <a href={html_url} target='_blank'>
                     <h3 className={u.contentLeft_login}>{login}</h3>
                 </a>
-
                 <div className={u.subscriptionBlock}>
                     <div className={u.followers}>
                         <img className={u.icon} src={iconFollowers} alt='iconFollowers'/>
@@ -81,9 +79,10 @@ export const UserProfile = () => {
                     </div>
                 </div>
             </div>
+
             <div className={u.contentRight}>
-                {status === 'loading' ? <Loader/> : repos.length ? <>
-                        <RepoElement repos={currentRepo}/>
+                {repos.length ? <>
+                        <ReposList repos={currentRepo}/>
                         <Pagination reposPerPage={reposPerPage}
                                     totalRepos={repos.length}
                                     handlerPaginate={handlerPaginate}
@@ -94,23 +93,7 @@ export const UserProfile = () => {
                                     lastRepoIndex={lastRepoIndex}
                         />
                     </>
-                    : status === 'loading' ? <Loader/> : <EmptyRepos/>}
-
-
-
-                {/*{repos.length ? <>*/}
-                {/*        <RepoElement repos={currentRepo}/>*/}
-                {/*        <Pagination reposPerPage={reposPerPage}*/}
-                {/*                    totalRepos={repos.length}*/}
-                {/*                    handlerPaginate={handlerPaginate}*/}
-                {/*                    handlerNextPage={handlerNextPage}*/}
-                {/*                    handlerPrevPage={handlerPrevPage}*/}
-                {/*                    currentPage={currentPage}*/}
-                {/*                    firstRepoIndex={firstRepoIndex}*/}
-                {/*                    lastRepoIndex={lastRepoIndex}*/}
-                {/*        />*/}
-                {/*    </>*/}
-                {/*    : <EmptyRepos/>}*/}
+                    : <EmptyRepos/>}
             </div>
         </div>
     );

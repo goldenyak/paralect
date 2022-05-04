@@ -29,26 +29,31 @@ const Pagination: React.FC<PaginationPropsType> = ({
     for (let i = 1; i <= Math.ceil(totalRepos / reposPerPage); i++) {
         pageNumbers.push(i)
     }
+    const customReposIndex = totalRepos < lastRepoIndex ? totalRepos : lastRepoIndex
 
     return (
         <div className={p.paginationWrapper}>
             <div className={p.paginationInfo}>
-                {firstRepoIndex + 1}-{lastRepoIndex} of {totalRepos} items
+                {firstRepoIndex + 1}-{customReposIndex} of {totalRepos} items
             </div>
             <button disabled={currentPage === 1} onClick={handlerPrevPage}>
-                <img className={p.paginationIconLeft} src={iconPagination} alt="arrow_prev"/>
+                <img className={p.paginationIconLeft} src={iconPagination}
+                     alt="arrow_prev"/>
             </button>
             {
                 pageNumbers.map(page => (
                     <div key={page}>
-                        <a className={currentPage === page ? p.paginationItemsActive : p.paginationItems} href='#'
+                        <a className={currentPage === page ? p.paginationItemsActive : p.paginationItems}
+                           href='#'
                            onClick={() => handlerPaginate(page)}>{page}</a>
                     </div>
                 ))
 
             }
-            <button disabled={currentPage === pageNumbers.length} onClick={handlerNextPage}>
-                <img className={p.paginationIconRight} src={iconPagination} alt="arrow_next"/>
+            <button disabled={currentPage === pageNumbers.length}
+                    onClick={handlerNextPage}>
+                <img className={p.paginationIconRight} src={iconPagination}
+                     alt="arrow_next"/>
             </button>
         </div>
     );
