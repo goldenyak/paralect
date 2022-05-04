@@ -1,8 +1,4 @@
-import axios from "axios";
-
-const instance = axios.create({
-    baseURL: 'https://api.github.com/'
-})
+import {instance} from "./instance";
 
 // api
 export const reposAPI = {

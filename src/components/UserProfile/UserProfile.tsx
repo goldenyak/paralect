@@ -11,7 +11,7 @@ import {useParams} from "react-router-dom";
 import {EmptyStatus} from "../EmptyStatus/EmptyStatus";
 import {EmptyRepos} from "../EmptyRepos/EmptyRepos";
 import {Loader} from "../Loader/Loader";
-import {UserType} from "../../api/user-api";
+import {UserType} from "../../api/types/UserType";
 import { ReposList } from '../ReposList/ReposList';
 
 export const UserProfile = () => {

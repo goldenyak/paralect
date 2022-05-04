@@ -1,10 +1,8 @@
-import {Dispatch} from "redux";
-import {userAPI, UserType} from "../api/user-api";
-import {AppActionType, AppRootStateType, ThunkType} from "./store";
-import {ThunkAction} from "redux-thunk";
+import {UserType} from "../api/types/UserType";
+import {userAPI} from "../api/user-api";
+import {ThunkType} from "./store";
 import {setAppStatusAC} from "./loader-reducer";
 import {fetchReposTC} from "./repos-reducer";
-import {reposAPI} from "../api/repos-api";
 
 const initialState: UserType = {
     avatar_url: '',
@@ -16,7 +14,6 @@ const initialState: UserType = {
     public_repos: 0,
 };
 // actionCreators
-// export const setUserAC = (avatar_url: string, name: string, login: string, html_url: string, folllowers: number, following: number, public_repos: number) => ({
 export const setUserAC = ({
                               avatar_url,
                               name,
@@ -58,7 +55,6 @@ export const userReducer = (state = initialState, action: ActionsUserType): User
 export const fetchUserTC = (username: string): ThunkType => async dispatch => {
     dispatch(setAppStatusAC('loading'))
     const {data} = await userAPI.getUser(username)
-    // dispatch(setUserAC(res.data.avatar_url, res.data.name, res.data.login, res.data.html_url, res.data.followers, res.data.following, res.data.public_repos))
     dispatch(setUserAC(data))
     await dispatch(fetchReposTC(username))
     dispatch(setAppStatusAC('succeeded'))

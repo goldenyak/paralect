@@ -1,8 +1,5 @@
-import axios from "axios";
-
-const instance = axios.create({
-    baseURL: 'https://api.github.com/'
-})
+import {instance} from "./instance";
+import {UserType} from "./types/UserType";
 
 // api
 export const userAPI = {
@@ -11,13 +8,3 @@ export const userAPI = {
     },
 }
 
-// types
-export type UserType = {
-    avatar_url: string
-    name: string
-    login: string
-    html_url: string
-    followers: number
-    following: number
-    public_repos: number
-}
