@@ -27,7 +27,7 @@ export const UserProfile = () => {
     const status = useSelector<AppRootStateType>(state => state.loading.status)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [reposPerPage] = useState(5);
+    const [reposPerPage] = useState(4);
 
     const dispatch = useAppDispatch();
     const params = useParams();
