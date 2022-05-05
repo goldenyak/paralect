@@ -65,7 +65,7 @@ export const UserProfile = () => {
             <div className={u.contentLeft}>
                 <img className={u.contentLeft_image} src={avatar_url} alt='userAvatar'/>
                 <h1 className={u.contentLeft_name}>{name}</h1>
-                <a href={html_url} target='_blank'>
+                <a href={html_url} target='_blank' rel="noreferrer">
                     <h3 className={u.contentLeft_login}>{login}</h3>
                 </a>
                 <div className={u.subscriptionBlock}>

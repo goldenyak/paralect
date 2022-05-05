@@ -1,7 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import s from "./Search.module.css";
 import iconSearch from "../../images/iconSearch.png";
-import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 export const Search = () => {
@@ -9,7 +8,6 @@ export const Search = () => {
     const [value, setValue] = useState('');
     const [error, setError] = useState<string | null>(null);
 
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {

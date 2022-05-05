@@ -18,7 +18,7 @@ export const ReposList: React.FC<RepoElementPropsType> = ({repos}) => {
             {
                 repos.length && repos.map((repo: ReposType) => (
                     <div key={repo.id} className={r.repoWrapper}>
-                        <a href={repo.html_url} target='_blank'>{repo.name}</a>
+                        <a href={repo.html_url} target='_blank' rel="noreferrer">{repo.name}</a>
                         <span>{repo.description}</span>
                     </div>
                 ))
