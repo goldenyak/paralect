@@ -1,8 +1,8 @@
 import React from 'react';
 import r from "./ReposList.module.css";
-import {ReposType} from "../../api/repos-api";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../redux/store";
+import {ReposType} from "../../api/types/ReposType";
 
 type RepoElementPropsType = {
     repos: ReposType[]

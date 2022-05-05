@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import u from "./UserProfile.module.css";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType, store, useAppDispatch} from "../../redux/store";
+import {useSelector} from "react-redux";
+import {AppRootStateType, useAppDispatch} from "../../redux/store";
 import iconFollowers from "../../images/iconFollowers.png";
 import iconFollowing from "../../images/iconFollowing.png";
-import {ReposType} from "../../api/repos-api";
 import Pagination from "../Pagination/Pagination";
 import {fetchUserTC} from "../../redux/user-reducer";
 import {useParams} from "react-router-dom";
@@ -13,6 +12,7 @@ import {EmptyRepos} from "../EmptyRepos/EmptyRepos";
 import {Loader} from "../Loader/Loader";
 import {UserType} from "../../api/types/UserType";
 import { ReposList } from '../ReposList/ReposList';
+import {ReposType} from "../../api/types/ReposType";
 
 export const UserProfile = () => {
     const {
@@ -23,11 +23,11 @@ export const UserProfile = () => {
         followers,
         following
     } = useSelector<AppRootStateType, UserType>(state => state.user);
-    const repos: ReposType[] = useSelector<AppRootStateType, Array<ReposType>>(state => state.repos);
+    const repos: ReposType[] = useSelector<AppRootStateType, ReposType[]>(state => state.repos);
     const status = useSelector<AppRootStateType>(state => state.loading.status)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [reposPerPage, setReposPerPage] = useState(5);
+    const [reposPerPage] = useState(5);
 
     const dispatch = useAppDispatch();
     const params = useParams();

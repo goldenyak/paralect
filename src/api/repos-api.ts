@@ -1,4 +1,5 @@
 import {instance} from "./instance";
+import {ReposType} from "./types/ReposType";
 
 // api
 export const reposAPI = {
@@ -7,10 +8,3 @@ export const reposAPI = {
     },
 }
 
-// types
-export type ReposType = {
-    name: string
-    description: string
-    html_url: string
-    id: number
-}
