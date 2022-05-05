@@ -2,10 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import s from "./Search.module.css";
 import iconSearch from "../../images/iconSearch.png";
 import {useDispatch} from "react-redux";
-import {fetchReposTC} from "../../redux/repos-reducer";
-import {fetchUserTC} from "../../redux/user-reducer";
 import {useNavigate} from "react-router-dom";
-import {ThunkDispatch} from "redux-thunk";
 
 export const Search = () => {
 

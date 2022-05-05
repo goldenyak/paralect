@@ -1,7 +1,6 @@
 import React from 'react';
 import iconSearchBig from "../../images/iconSearchBig.png";
 import i from "./InitialStatus.module.css"
-import {Loader} from "../Loader/Loader";
 
 export const InitialStatus = () => {
     return (
