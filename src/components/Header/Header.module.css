@@ -1,7 +1,7 @@
 .header {
     display: flex;
     align-items: center;
-    padding-left: 41px;
+    padding: 0 0 0 41px;
     height: 72px;
     background-color: #0064EB;
 }
@@ -11,16 +11,37 @@ img {
     height: 40px;
 }
 
+
 @media (min-width: 320px) {
     .header {
-        justify-content: center;
-        padding-left: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 72px;
+        background-color: #0064EB;
     }
 }
 
-@media (min-width: 481px) {
-    .header {
-        justify-content: normal;
-        padding-left: 41px;
-    }
+@media (min-width: 468px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 912px) {
+
+}
+
+@media (min-width: 1280px) {
+
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (max-width: 1280px) {
+
 }
