@@ -56,3 +56,51 @@ button {
     color: #808080;
     margin-right: 16px;
 }
+
+@media screen and (min-width: 320px) {
+    .paginationWrapper {
+        margin: 24px auto 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .paginationInfo {
+        font-size: 12px;
+        font-weight: 400;
+        color: #808080;
+        margin-right: 16px;
+    }
+
+    .paginationItems {
+        font-size: 12px;
+        font-weight: 400;
+        color: #808080;
+    }
+}
+
+@media screen and (min-width: 375px) {
+
+}
+
+@media screen and (min-width: 425px) {
+
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1280px) {
+
+}
+
+@media screen and (min-width: 1440px) {
+
+}
