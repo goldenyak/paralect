@@ -11,8 +11,7 @@ img {
     height: 40px;
 }
 
-
-@media (min-width: 320px) {
+@media screen and (min-width: 320px) {
     .header {
         display: flex;
         align-items: center;
@@ -22,26 +21,13 @@ img {
     }
 }
 
-@media (min-width: 468px) {
-
+@media screen and (min-width: 768px) {
+    .header {
+        display: flex;
+        align-items: center;
+        padding: 0 0 0 41px;
+        height: 72px;
+        background-color: #0064EB;
+    }
 }
 
-@media (min-width: 768px) {
-
-}
-
-@media (min-width: 912px) {
-
-}
-
-@media (min-width: 1280px) {
-
-}
-
-@media (min-width: 1024px) {
-
-}
-
-@media (max-width: 1280px) {
-
-}
