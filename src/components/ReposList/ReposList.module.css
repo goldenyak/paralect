@@ -56,11 +56,15 @@
 }
 
 @media screen and (min-width: 375px) {
-
+    .repoWrapper {
+        min-width: 300px;
+    }
 }
 
 @media screen and (min-width: 425px) {
-
+    .repoWrapper {
+        min-width: 350px;
+    }
 }
 
 @media screen and (min-width: 768px) {
