@@ -9,14 +9,11 @@ a:hover {
 
 .mainContent {
     display: flex;
-    /*padding: 28px 56px;*/
-    /*height: 100%;*/
 }
 
 .contentLeft {
     display: flex;
     flex-direction: column;
-    /*width: 30%;*/
 }
 
 .contentLeft_image {
@@ -74,10 +71,6 @@ a:hover {
     width: 24px;
     height: 24px;
 }
-
-/*.contentRight {*/
-/*    width: 70%;*/
-/*}*/
 
 @media screen and (min-width: 320px) {
     .mainContent {
