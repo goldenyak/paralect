@@ -13,7 +13,7 @@ export const ReposList: React.FC<RepoElementPropsType> = ({repos}) => {
     const {public_repos} = useSelector<AppRootStateType, any>(state => state.user);
 
     return (
-        <div>
+        <div className={r.container}>
             <h2>Repositories ({public_repos})</h2>
             {
                 repos.length && repos.map((repo: ReposType) => (

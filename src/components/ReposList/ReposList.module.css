@@ -38,7 +38,6 @@
 
     .repoWrapper a {
         display: block;
-        /*margin-bottom: 16px;*/
         font-size: 14px;
         font-weight: 500;
         color: #0064EB;
@@ -69,7 +68,6 @@
 
 @media screen and (min-width: 768px) {
     .repoWrapper {
-        /*margin-bottom: 20px;*/
         padding: 12px;
         border-radius: 7px;
         background-color: #ffffff;
@@ -79,13 +77,43 @@
 
 
 @media screen and (min-width: 1024px) {
+    .container {
+        width: 100%;
+    }
 
+    .repoWrapper {
+        padding: 12px;
+        border-radius: 7px;
+        background-color: #ffffff;
+        opacity: 0.8;
+    }
+
+    .repoWrapper a {
+        display: block;
+        font-size: 24px;
+        font-weight: 500;
+        color: #0064EB;
+        cursor: pointer;
+    }
+
+    .repoWrapper span {
+        display: block;
+        margin: 16px 0 0 0;
+        padding: 0;
+        color: black;
+        font-size: 16px;
+        font-weight: 400;
+    }
 }
 
 @media screen and (min-width: 1280px) {
-
+    .container {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1440px) {
-
+    .container {
+        width: 100%;
+    }
 }

@@ -43,7 +43,7 @@ button {
     text-decoration: none;
 }
 
-.paginationItemsActive{
+.paginationItemsActive {
     border: 1px solid #0064EB;
     background: #0064EB;
     border-radius: 3px;
@@ -84,14 +84,6 @@ button {
     }
 }
 
-@media screen and (min-width: 375px) {
-
-}
-
-@media screen and (min-width: 425px) {
-
-}
-
 @media screen and (min-width: 768px) {
     .paginationWrapper {
         margin: 12px 0 0 auto;
@@ -101,15 +93,12 @@ button {
     }
 }
 
-
 @media screen and (min-width: 1024px) {
+    .paginationInfo {
+        font-size: 16px;
+    }
 
-}
-
-@media screen and (min-width: 1280px) {
-
-}
-
-@media screen and (min-width: 1440px) {
-
+    .paginationItems {
+        font-size: 16px;
+    }
 }

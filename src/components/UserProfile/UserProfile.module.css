@@ -3,10 +3,6 @@ a {
     color: #0064EB;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 .contentLeft {
     display: flex;
     flex-direction: column;
@@ -34,7 +30,6 @@ a:hover {
 
 .subscriptionBlock {
     display: flex;
-    /*align-items: center;*/
     gap: 16px;
     margin-top: 25px;
 }
@@ -120,21 +115,12 @@ a:hover {
     }
 }
 
-@media screen and (min-width: 375px) {
-
-}
-
-@media screen and (min-width: 425px) {
-
-}
-
 @media screen and (min-width: 768px) {
     .mainContent {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         align-items: flex-start;
-        align-content: stretch;
         padding: 28px 56px;
     }
 
@@ -172,13 +158,56 @@ a:hover {
 
 
 @media screen and (min-width: 1024px) {
+    .mainContent {
+        display: flex;
+        justify-content: flex-start;
+        gap: 96px;
+        padding: 28px 56px;
+        flex: 40%;
+    }
+    .contentLeft_image {
+        width: 280px;
+        height: 280px;
+        border-radius: 100%;
+    }
 
+    .contentRight {
+        display: flex;
+        flex-direction: column;
+        flex: 60%;
+        align-items: flex-start;
+       }
+
+    .contentRight h2 {
+        font-size: 32px;
+        text-align: left;
+        margin: 0 0 29px 0;
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 1280px) {
+    .mainContent {
+        display: flex;
+        justify-content: flex-start;
+        gap: 96px;
+        padding: 28px 56px;
+        flex: 40%;
+    }
 
+    .contentRight {
+        display: flex;
+        flex-direction: column;
+        flex: 60%;
+        align-items: flex-start;
+    }
 }
 
-@media screen and (min-width: 1440px) {
-
-}
+/*@media screen and (min-width: 1440px) {*/
+/*    .mainContent {*/
+/*        display: flex;*/
+/*        justify-content: flex-start;*/
+/*        gap: 96px;*/
+/*        padding: 28px 56px;*/
+/*    }*/
+/*}*/
