@@ -34,7 +34,7 @@ a:hover {
 
 .subscriptionBlock {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     gap: 16px;
     margin-top: 25px;
 }
@@ -131,13 +131,17 @@ a:hover {
 @media screen and (min-width: 768px) {
     .mainContent {
         display: flex;
+        justify-content: space-between;
         flex-direction: row;
+        align-items: flex-start;
+        align-content: stretch;
         padding: 28px 56px;
     }
 
     .contentLeft {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: flex-start;
     }
 
@@ -148,6 +152,21 @@ a:hover {
 
     .subscriptionBlock {
         margin: 20px 0 0 0;
+    }
+
+    .subscriptionBlock span {
+        font-size: 16px;
+    }
+
+    .contentRight {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contentRight h2 {
+        text-align: left;
+        margin: 0 0 29px 0;
+        padding: 0;
     }
 }
 
